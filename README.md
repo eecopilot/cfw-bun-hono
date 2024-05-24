@@ -16,5 +16,6 @@ bunx wrangler d1 create cfw-bun-hono-drizzle-d1
 bun run db:generate
 
 3. D1 migration
-   ------------------------- database name --------- local/remote -- file
-   bunx wrangler d1 execute cfw-bun-hono-drizzle-d1 --local --file=本地 sql
+
+------------------------- database name --------- local/remote -- file  
+bunx wrangler d1 execute cfw-bun-hono-drizzle-d1 --local --file=本地 sql
