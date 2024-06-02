@@ -1,11 +1,22 @@
-```
-npm install
-npm run dev
-```
+Install
 
 ```
-npm run deploy
+bun install
 ```
+
+Dev
+
+```
+bun run dev
+```
+
+Production
+
+```
+bun run deploy
+```
+
+其他说明
 
 1. 创建 D1 数据库
 

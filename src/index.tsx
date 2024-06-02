@@ -1,14 +1,17 @@
-import { drizzle } from 'drizzle-orm/d1';
 import { Hono } from 'hono';
+import { drizzle } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
 import { posts } from './db/schema';
+
+import Home from './pages/Home';
 
 export type Env = {
   DB: D1Database;
 };
 
-const api = new Hono<{ Bindings: Env }>();
-api
+const app = new Hono<{ Bindings: Env }>();
+
+app
   .get('/posts', async (c) => {
     const db = drizzle(c.env.DB);
     const result = await db.select().from(posts).all();
@@ -30,11 +33,11 @@ api
     return c.json(result);
   });
 
-const app = new Hono();
+// const app = new Hono();
+// app.route('/api', api);
 
 app.get('/', (c) => {
-  return c.text('Hello World!');
+  return c.html(<Home />);
 });
-app.route('/api', api);
 
 export default app;
